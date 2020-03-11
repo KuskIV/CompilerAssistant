@@ -25,30 +25,38 @@ namespace SableCC_CompilerAssisten
 
         public string Run(string command, string path, out bool isErrors)
         {
-            Runspace runspace = RunspaceFactory.CreateRunspace();
-            runspace.Open();
-            runspace.SessionStateProxy.Path.SetLocation(path);
+            string error = "";
 
-            Pipeline pipeline = runspace.CreatePipeline();
-            pipeline.Commands.Add(command);
-            pipeline.Commands.Add("Out-String");
-            Collection<PSObject> pSObjects = pipeline.Invoke();
-            //PrintMessage(pSObjects);
-            if (pipeline.HadErrors)
+            isErrors = false;
+
+            try
+            {
+                Runspace runspace = RunspaceFactory.CreateRunspace();
+                runspace.Open();
+                runspace.SessionStateProxy.Path.SetLocation(path);
+
+                Pipeline pipeline = runspace.CreatePipeline();
+                pipeline.Commands.Add(command);
+                pipeline.Commands.Add("Out-String");
+                Collection<PSObject> pSObjects = pipeline.Invoke();
+                //PrintMessage(pSObjects);
+                if (pipeline.HadErrors)
+                {
+                    isErrors = true;
+                    var errors = pipeline.Error.ReadToEnd();
+                    PrintErrors(errors);
+                }
+
+                runspace.Close();
+            }
+            catch (Exception e)
             {
                 isErrors = true;
-                var errors = pipeline.Error.ReadToEnd();
-                PrintErrors(errors);
+                error = "THE COMPILER COULD NOT RUN (Compiler.Run())\r\n" + e.ToString();
             }
-            else
-            {
-                isErrors = false;
-            }
-            runspace.Close();
-            string s = stringBuilder.ToString();
-            s = GetLastError(stringBuilder.ToString());
 
-            return GetLastError(stringBuilder.ToString());
+
+            return String.IsNullOrEmpty(stringBuilder.ToString()) ? error : GetLastError(stringBuilder.ToString());
         }
 
         string GetLastError(string messages)

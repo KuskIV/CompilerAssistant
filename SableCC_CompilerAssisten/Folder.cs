@@ -12,59 +12,79 @@ namespace SableCC_CompilerAssisten
         DirectoryInfo[] dirs;
         FileInfo[] files;
 
-        public void Replace(string source, string destination)
+        public string Replace(string source, string destination)
         {
-            EmptyDestination(destination);
-            FillDestination(source, destination);
+            return EmptyDestination(destination) + "\r\n" + FillDestination(source, destination);
         }
 
-        void FillDestination(string source, string destination)
+        string FillDestination(string source, string destination)
         {
             DirectoryInfo dir = new DirectoryInfo(source);
 
             if (dir.Exists)
             {
-                dirs = dir.GetDirectories();
-
-                if (!Directory.Exists(destination))
+                try
                 {
-                    Directory.CreateDirectory(destination);
+                    dirs = dir.GetDirectories();
+
+                    if (!Directory.Exists(destination))
+                    {
+                        Directory.CreateDirectory(destination);
+                    }
+
+                    files = dir.GetFiles();
+
+                    foreach (FileInfo file in files)
+                    {
+                        string temppath = Path.Combine(destination, file.Name);
+                        file.CopyTo(temppath, true);
+                    }
+
+                    foreach (DirectoryInfo subdir in dirs)
+                    {
+                        string temppath = Path.Combine(destination, subdir.Name);
+                        Replace(subdir.FullName, temppath);
+                    }
                 }
-
-                files = dir.GetFiles();
-
-                foreach (FileInfo file in files)
+                catch (Exception e)
                 {
-                    string temppath = Path.Combine(destination, file.Name);
-                    file.CopyTo(temppath, true);
+                    return e.ToString();
                 }
-
-                foreach (DirectoryInfo subdir in dirs)
-                {
-                    string temppath = Path.Combine(destination, subdir.Name);
-                    Replace(subdir.FullName, temppath);
-                }
+                
             }
+            else
+            {
+                return $"The following path was not found:\n{source} (Folder.FillDestination())";
+            }
+
+            return "";
         }
 
-        public void Clear(string source)
+        public string Clear(string source)
         {
-            EmptySourse(source);
+            return EmptySourse(source);
         }
 
-        void EmptySourse(string source)
+        string EmptySourse(string source)
         {
-            DeleteFolders(source);
+            return DeleteFolders(source);
         }
 
-        void EmptyDestination(string destination)
+        string EmptyDestination(string destination)
         {
             string path = destination + @"\company";
-
-            DeleteFiles(path + @"\analysis");
-            DeleteFiles(path + @"\lexer");
-            DeleteFiles(path + @"\node");
-            DeleteFiles(path + @"\parser");
+            try
+            {
+                DeleteFiles(path + @"\analysis");
+                DeleteFiles(path + @"\lexer");
+                DeleteFiles(path + @"\node");
+                DeleteFiles(path + @"\parser");
+            }
+            catch (Exception e)
+            {
+                return "DESTINATION COULD NOT BE DELETED (Folder.EmptyDestination())\r\n" + e.ToString();
+            }
+            return "";
         }
 
         void DeleteFiles(string path)
@@ -80,14 +100,23 @@ namespace SableCC_CompilerAssisten
             }
         }
 
-        void DeleteFolders(string path)
+        string DeleteFolders(string path)
         {
             DirectoryInfo di = new DirectoryInfo(path);
 
-            foreach (DirectoryInfo dir in di.GetDirectories())
+            try
             {
-                dir.Delete(true);
+                foreach (DirectoryInfo dir in di.GetDirectories())
+                {
+                    dir.Delete(true);
+                }
             }
+            catch (Exception e)
+            {
+                return "FOLDERS COULD NOT BE DELETED (check start path, Folder.DeleteFolders())\r\n" + e.ToString();
+            }
+
+            return "";
         }
     }
 }

@@ -32,16 +32,26 @@ namespace SableCC_CompilerAssisten
             string source = start + @"\com";
             string destination = start + @"\src\com";
 
+            string result = "";
+
             bool isError;
 
             PowerShellTxt.Clear();
-            folder.Clear(source);
-            string result = command.Run(script, start, out isError);
-            
-            if (!isError)
+            result = folder.Clear(source);
+
+            if (String.IsNullOrEmpty(result))
             {
-                PowerShellTxt.Text = "Success!";
-                folder.Replace(source, destination);
+                result = command.Run(script, start, out isError);
+
+                if (!isError)
+                {
+                    PowerShellTxt.Text = "Success!";
+                    folder.Replace(source, destination);
+                }
+                else
+                {
+                    PowerShellTxt.Text = result;
+                }
             }
             else
             {
