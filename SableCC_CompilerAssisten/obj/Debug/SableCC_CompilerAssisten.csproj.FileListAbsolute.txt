@@ -11,3 +11,16 @@ C:\Users\madsh\OneDrive\Universitetet\Github Projects\SableCC_CompilerAssisten\S
 C:\Users\madsh\OneDrive\Universitetet\Github Projects\SableCC_CompilerAssisten\SableCC_CompilerAssisten\obj\Debug\SableCC_CompilerAssisten.csproj.CopyComplete
 C:\Users\madsh\OneDrive\Universitetet\Github Projects\SableCC_CompilerAssisten\SableCC_CompilerAssisten\obj\Debug\SableCC_CompilerAssisten.exe
 C:\Users\madsh\OneDrive\Universitetet\Github Projects\SableCC_CompilerAssisten\SableCC_CompilerAssisten\obj\Debug\SableCC_CompilerAssisten.pdb
+C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\bin\Debug\SableCC_CompilerAssisten.exe.config
+C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\bin\Debug\SableCC_CompilerAssisten.exe
+C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\bin\Debug\SableCC_CompilerAssisten.pdb
+C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\bin\Debug\System.Management.Automation.dll
+C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\bin\Debug\Microsoft.Management.Infrastructure.dll
+C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\bin\Debug\System.Management.Automation.xml
+C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\obj\Debug\SableCC_CompilerAssisten.csprojAssemblyReference.cache
+C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\obj\Debug\SableCC_CompilerAssisten.Form1.resources
+C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\obj\Debug\SableCC_CompilerAssisten.Properties.Resources.resources
+C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\obj\Debug\SableCC_CompilerAssisten.csproj.GenerateResource.cache
+C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\obj\Debug\SableCC_CompilerAssisten.csproj.CopyComplete
+C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\obj\Debug\SableCC_CompilerAssisten.exe
+C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\obj\Debug\SableCC_CompilerAssisten.pdb

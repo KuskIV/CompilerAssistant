@@ -7,3 +7,13 @@
 .vs/SableCC_CompilerAssisten/v16/.suo
 *.ide
 *.sqlite
+.vs/SableCC_CompilerAssisten/v16/.suo
+*.pdb
+*.exe
+*.cache
+*.txt
+SableCC_CompilerAssisten/bin/Debug/SableCC_CompilerAssisten.pdb
+*.exe
+*.json
+*.ide
+.vs/SableCC_CompilerAssisten/v16/.suo
