@@ -24,3 +24,5 @@ C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_
 C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\obj\Debug\SableCC_CompilerAssisten.csproj.CopyComplete
 C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\obj\Debug\SableCC_CompilerAssisten.exe
 C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\obj\Debug\SableCC_CompilerAssisten.pdb
+C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\bin\Debug\Markdig.dll
+C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\bin\Debug\Markdig.xml

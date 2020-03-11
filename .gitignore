@@ -17,3 +17,17 @@ SableCC_CompilerAssisten/bin/Debug/SableCC_CompilerAssisten.pdb
 *.json
 *.ide
 .vs/SableCC_CompilerAssisten/v16/.suo
+*.dll
+*.xml
+*.p7s
+*.nupkg
+*.ide
+*.targets
+*.exe
+*.cache
+*.config
+SableCC_CompilerAssisten/packages.config
+*.ide
+.vs/SableCC_CompilerAssisten/v16/Server/sqlite3/storage.ide
+.vs/SableCC_CompilerAssisten/v16/.suo
+*.pdb
