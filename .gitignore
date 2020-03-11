@@ -1,0 +1,9 @@
+
+.vs/CompilerAssistant/v16/.suo
+.vs/SableCC_CompilerAssisten/v16/.suo
+.vs/SableCC_CompilerAssisten/v16/Server/sqlite3/storage.ide
+*.ide-shm
+*.ide-wal
+.vs/SableCC_CompilerAssisten/v16/.suo
+*.ide
+*.sqlite

@@ -25,7 +25,6 @@ namespace SableCC_CompilerAssisten
         {
 
         }
-        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -36,6 +35,7 @@ namespace SableCC_CompilerAssisten
             bool isError;
 
             PowerShellTxt.Clear();
+            folder.Clear(source);
             string result = command.Run(script, start, out isError);
             
             if (!isError)

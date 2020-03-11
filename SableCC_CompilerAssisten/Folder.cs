@@ -14,6 +14,12 @@ namespace SableCC_CompilerAssisten
 
         public void Replace(string source, string destination)
         {
+            EmptyDestination(destination);
+            FillDestination(source, destination);
+        }
+
+        void FillDestination(string source, string destination)
+        {
             DirectoryInfo dir = new DirectoryInfo(source);
 
             if (dir.Exists)
@@ -38,6 +44,49 @@ namespace SableCC_CompilerAssisten
                     string temppath = Path.Combine(destination, subdir.Name);
                     Replace(subdir.FullName, temppath);
                 }
+            }
+        }
+
+        public void Clear(string source)
+        {
+            EmptySourse(source);
+        }
+
+        void EmptySourse(string source)
+        {
+            DeleteFolders(source);
+        }
+
+        void EmptyDestination(string destination)
+        {
+            string path = destination + @"\company";
+
+            DeleteFiles(path + @"\analysis");
+            DeleteFiles(path + @"\lexer");
+            DeleteFiles(path + @"\node");
+            DeleteFiles(path + @"\parser");
+        }
+
+        void DeleteFiles(string path)
+        {
+            DirectoryInfo di = new DirectoryInfo(path);
+
+            if (di.Exists)
+            {
+                foreach (FileInfo file in di.GetFiles())
+                {
+                    file.Delete();
+                }
+            }
+        }
+
+        void DeleteFolders(string path)
+        {
+            DirectoryInfo di = new DirectoryInfo(path);
+
+            foreach (DirectoryInfo dir in di.GetDirectories())
+            {
+                dir.Delete(true);
             }
         }
     }

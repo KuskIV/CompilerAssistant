@@ -53,6 +53,7 @@ namespace SableCC_CompilerAssisten
             Runspace runspace = RunspaceFactory.CreateRunspace();
             runspace.Open();
             runspace.SessionStateProxy.Path.SetLocation(path);
+
             Pipeline pipeline = runspace.CreatePipeline();
             pipeline.Commands.Add(command);
             pipeline.Commands.Add("Out-String");
