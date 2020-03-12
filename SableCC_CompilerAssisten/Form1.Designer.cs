@@ -46,6 +46,7 @@
             // PowerShellTxt
             // 
             this.PowerShellTxt.BackColor = System.Drawing.SystemColors.WindowText;
+            this.PowerShellTxt.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PowerShellTxt.ForeColor = System.Drawing.SystemColors.Info;
             this.PowerShellTxt.Location = new System.Drawing.Point(12, 57);
             this.PowerShellTxt.Multiline = true;
