@@ -23,6 +23,13 @@ namespace SableCC_CompilerAssisten
         string command, path;
         StringBuilder stringBuilder = new StringBuilder();
 
+        /// <summary>
+        /// Runs the script in command, and returns the last message.
+        /// </summary>
+        /// <param name="command"></param>
+        /// <param name="path"></param>
+        /// <param name="isErrors"></param>
+        /// <returns></returns>
         public string Run(string command, string path, out bool isErrors)
         {
             string error = "";
@@ -59,6 +66,13 @@ namespace SableCC_CompilerAssisten
             return String.IsNullOrEmpty(stringBuilder.ToString()) ? error : GetLastError(stringBuilder.ToString());
         }
 
+        #region private methods
+        /// <summary>
+        /// When recompiling, the errors from all other compiles are also included.
+        /// This method finds and returns the most recent.
+        /// </summary>
+        /// <param name="messages"></param>
+        /// <returns></returns>
         string GetLastError(string messages)
         {
             List<string> lines = messages.Split(new[] { "\r\n" }, StringSplitOptions.None ).ToList();
@@ -67,6 +81,11 @@ namespace SableCC_CompilerAssisten
             return GetLastMessage(lines);
         }
 
+        /// <summary>
+        /// This method splits the different messages and returns the last.
+        /// </summary>
+        /// <param name="lines"></param>
+        /// <returns></returns>
         string GetLastMessage(List<string> lines)
         {
             string result = "";
@@ -108,5 +127,6 @@ namespace SableCC_CompilerAssisten
                 stringBuilder.AppendLine(obj.ToString());
             }
         }
+        #endregion
     }
 }

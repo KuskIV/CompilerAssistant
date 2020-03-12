@@ -65,6 +65,7 @@ namespace SableCC_CompilerAssisten
             return EmptySourse(source);
         }
 
+        #region private methods
         string EmptySourse(string source)
         {
             return DeleteFolders(source);
@@ -118,5 +119,6 @@ namespace SableCC_CompilerAssisten
 
             return "";
         }
+        #endregion
     }
 }

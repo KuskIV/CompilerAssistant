@@ -34,3 +34,6 @@ SableCC_CompilerAssisten/packages.config
 .vs/SableCC_CompilerAssisten/v16/.suo
 .vs/SableCC_CompilerAssisten/v16/Server/sqlite3/storage.ide
 *.ide
+*.pdb
+*.exe
+*.pdb
