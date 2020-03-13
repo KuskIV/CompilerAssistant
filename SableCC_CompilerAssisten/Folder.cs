@@ -76,16 +76,28 @@ namespace SableCC_CompilerAssisten
             string path = destination + @"\company";
             try
             {
-                DeleteFiles(path + @"\analysis");
-                DeleteFiles(path + @"\lexer");
-                DeleteFiles(path + @"\node");
-                DeleteFiles(path + @"\parser");
+                if (PathExists(path))
+                {
+                    DeleteFiles(path + @"\analysis");
+                    DeleteFiles(path + @"\lexer");
+                    DeleteFiles(path + @"\node");
+                    DeleteFiles(path + @"\parser");
+                }
+                else
+                {
+                    return "Path did not exist (EmptyDestination())\r\n" + path;
+                }
             }
             catch (Exception e)
             {
                 return "DESTINATION COULD NOT BE DELETED (Folder.EmptyDestination())\r\n" + e.ToString();
             }
             return "";
+        }
+
+        bool PathExists(string path)
+        {
+            return new DirectoryInfo(path).Exists;
         }
 
         void DeleteFiles(string path)
@@ -104,17 +116,19 @@ namespace SableCC_CompilerAssisten
         string DeleteFolders(string path)
         {
             DirectoryInfo di = new DirectoryInfo(path);
-
-            try
+            if (di.Exists)
             {
-                foreach (DirectoryInfo dir in di.GetDirectories())
+                try
                 {
-                    dir.Delete(true);
+                    foreach (DirectoryInfo dir in di.GetDirectories())
+                    {
+                        dir.Delete(true);
+                    }
                 }
-            }
-            catch (Exception e)
-            {
-                return "FOLDERS COULD NOT BE DELETED (check start path, Folder.DeleteFolders())\r\n" + e.ToString();
+                catch (Exception e)
+                {
+                    return "FOLDERS COULD NOT BE DELETED (check start path, Folder.DeleteFolders())\r\n" + e.ToString();
+                }
             }
 
             return "";

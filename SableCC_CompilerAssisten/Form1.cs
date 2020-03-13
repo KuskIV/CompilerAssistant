@@ -16,6 +16,7 @@ namespace SableCC_CompilerAssisten
 
         // Unique path to the SableCC git folder
         string start = @"C:\Users\madsh\OneDrive\Universitetet\Github Projects\SableCC";
+        string extention = @"\SableCompilerFiles";
 
         string scriptPath;
         string sourcePath;
@@ -31,6 +32,7 @@ namespace SableCC_CompilerAssisten
         public Form1()
         {
             InitializeComponent();
+            SetPaths(start);
             SetDefaultValues();
 
             Pathtxt.Text = start;
@@ -65,14 +67,17 @@ namespace SableCC_CompilerAssisten
         #region Private methods
         void SetDefaultValues()
         {
-            scriptPath = start + @"\" + "script.ps1";
-            sourcePath = start + @"\com";
-            destinationPath = start + @"\src\com";
-
-            script = new Script(scriptPath);
-
             defaultPath = start;
             defaultScipt = script.get();
+        }
+
+        void SetPaths(string initial)
+        {
+            scriptPath = initial + @"\SableCompilerFiles\script.ps1";
+            sourcePath = initial + @"\SableCompilerFiles\com";
+            destinationPath = initial + @"\src\com";
+
+            script = new Script(scriptPath);
         }
 
         bool PathExists()
@@ -105,12 +110,12 @@ namespace SableCC_CompilerAssisten
             bool isSable;
 
             script.set(Commandtxt.Text);
-
+            SetPaths(Pathtxt.Text);
             result = folder.Clear(sourcePath);
 
             if (String.IsNullOrEmpty(result))
             {
-                result = command.Run(scriptPath, Pathtxt.Text, out isError, out isSable);
+                result = command.Run(scriptPath, Pathtxt.Text + extention, out isError, out isSable);
 
                 HandleResult(isError, isSable, result);
             }
