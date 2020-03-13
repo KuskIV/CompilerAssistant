@@ -17,6 +17,7 @@ namespace SableCC_CompilerAssisten
         // Unique path to the SableCC git folder
         string start = @"C:\Users\madsh\OneDrive\Universitetet\Github Projects\SableCC";
         string extention = @"\SableCompilerFiles";
+        string ps1 = @"\script.ps1";
 
         string scriptPath;
         string sourcePath;
@@ -31,8 +32,10 @@ namespace SableCC_CompilerAssisten
 
         public Form1()
         {
+            scriptPath = start + extention + ps1;
+
             InitializeComponent();
-            SetPaths(start);
+            SetInitialPaths();
             SetDefaultValues();
 
             Pathtxt.Text = start;
@@ -67,17 +70,26 @@ namespace SableCC_CompilerAssisten
         #region Private methods
         void SetDefaultValues()
         {
+            script = new Script(scriptPath);
+
             defaultPath = start;
             defaultScipt = script.get();
         }
 
+        void SetInitialPaths()
+        {
+            scriptPath = start + extention + ps1;
+            sourcePath = start + @"\SableCompilerFiles\com";
+            destinationPath = start + @"\src\com";
+
+        }
+
         void SetPaths(string initial)
         {
-            scriptPath = initial + @"\SableCompilerFiles\script.ps1";
+            //scriptPath = initial + @"\SableCompilerFiles\script.ps1";
             sourcePath = initial + @"\SableCompilerFiles\com";
             destinationPath = initial + @"\src\com";
 
-            script = new Script(scriptPath);
         }
 
         bool PathExists()
@@ -110,18 +122,30 @@ namespace SableCC_CompilerAssisten
             bool isSable;
 
             script.set(Commandtxt.Text);
-            SetPaths(Pathtxt.Text);
+            //SetPaths(Pathtxt.Text);
             result = folder.Clear(sourcePath);
 
             if (String.IsNullOrEmpty(result))
             {
-                result = command.Run(scriptPath, Pathtxt.Text + extention, out isError, out isSable);
+                result = command.Run(scriptPath, SetPath(Pathtxt.Text), out isError, out isSable);
 
                 HandleResult(isError, isSable, result);
             }
             else
             {
                 PowerShellTxt.Text = result;
+            }
+        }
+
+        string SetPath(string initial)
+        {
+            if (initial == start)
+            {
+                return start + extention;
+            }
+            else
+            {
+                return initial;
             }
         }
         #endregion

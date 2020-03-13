@@ -16,6 +16,15 @@ namespace SableCC_CompilerAssisten
         StringBuilder stringBuilder = new StringBuilder();
         Script script;
 
+        string libFolder = "lib";
+        string sablecc = "sablecc.jar";
+        string bat = "sablecc.bat";
+        string iml = "SableCC_V3.iml";
+        string sableFile;
+        List<string> files;
+
+
+
         /// <summary>
         /// Runs the script in command, and returns the last message.
         /// </summary>
@@ -25,10 +34,15 @@ namespace SableCC_CompilerAssisten
         /// <returns></returns>
         public string Run(string command, string path, out bool isErrors, out bool isSable)
         {
-            script = new Script(command);
-            string error = "";
-
+            string error = SetupScript(command, path);
             isErrors = false;
+
+            if (!String.IsNullOrEmpty(error))
+            {
+                isErrors = true;
+                isSable = false;
+                return error;
+            }
 
             try
             {
@@ -59,7 +73,7 @@ namespace SableCC_CompilerAssisten
                 error = "THE COMPILER COULD NOT RUN (Compiler.Run())\r\n" + e.ToString();
             }
 
-            isSable = SableComand(command);
+            isSable = script != null ? SableComand(command) : false;
 
             return String.IsNullOrEmpty(stringBuilder.ToString()) ? error : isErrors ? ReturnErrors(command) : stringBuilder.ToString();
         }
@@ -132,19 +146,72 @@ namespace SableCC_CompilerAssisten
 
         string ReturnErrors(string command)
         {
-            if (SableComand(command))
+            if (script != null)
             {
-                return GetLastError(stringBuilder.ToString());
+                if (SableComand(command))
+                {
+                    return GetLastError(stringBuilder.ToString());
+                }
             }
-            else
-            {
-                return stringBuilder.ToString();
-            }
+            return stringBuilder.ToString();
         }
 
         bool SableComand(string path)
         {
             return script.get().Contains(@".\sablecc");
+        }
+
+        bool PathExists(string path)
+        {
+            return new DirectoryInfo(path).Exists;
+        }
+        
+        string SetupScript(string command, string path)
+        {
+            if (File.Exists(command))
+            {
+                script = new Script(command);
+
+                sableFile = script.get().Split(' ')[1];
+                if (SableComand(command))
+                {
+                    return VerifyFiles(path);
+                }
+                else
+                {
+                    return "";
+                }
+            }
+
+            return "The path:\r\n" + command + "\r\nDoes not lead to a .ps1 file, and can therefore not be run.";
+        }
+
+        string VerifyFiles(string path)
+        {
+            SetupFilelist();
+            string result = "";
+
+            foreach (string file in files)
+            {
+                if (!File.Exists(path + @"\" + file))
+                {
+                    if (String.IsNullOrEmpty(result))
+                    {
+                        result = "In path:\r\n" + path + "\r\n\r\nThe following files are missing to run SableCC\r\n" + file;
+                    }
+                    else
+                    {
+                        result += "\t - " + file + "\r\n";
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        void SetupFilelist()
+        {
+            files = new List<string>() { libFolder + @"\" + sablecc, bat, iml, sableFile };
         }
         #endregion
     }
