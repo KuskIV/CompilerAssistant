@@ -13,15 +13,8 @@ namespace SableCC_CompilerAssisten
 {
     class Compile
     {
-        public Compile(string _command, string _path)
-        {
-            path = _path;
-            command = _command;
-        }
-        public Compile() { }
-
-        string command, path;
         StringBuilder stringBuilder = new StringBuilder();
+        Script script;
 
         /// <summary>
         /// Runs the script in command, and returns the last message.
@@ -30,8 +23,9 @@ namespace SableCC_CompilerAssisten
         /// <param name="path"></param>
         /// <param name="isErrors"></param>
         /// <returns></returns>
-        public string Run(string command, string path, out bool isErrors)
+        public string Run(string command, string path, out bool isErrors, out bool isSable)
         {
+            script = new Script(command);
             string error = "";
 
             isErrors = false;
@@ -46,12 +40,15 @@ namespace SableCC_CompilerAssisten
                 pipeline.Commands.Add(command);
                 pipeline.Commands.Add("Out-String");
                 Collection<PSObject> pSObjects = pipeline.Invoke();
-                //PrintMessage(pSObjects);
                 if (pipeline.HadErrors)
                 {
                     isErrors = true;
                     var errors = pipeline.Error.ReadToEnd();
                     PrintErrors(errors);
+                }
+                else
+                {
+                    PrintMessage(pSObjects);
                 }
 
                 runspace.Close();
@@ -62,8 +59,9 @@ namespace SableCC_CompilerAssisten
                 error = "THE COMPILER COULD NOT RUN (Compiler.Run())\r\n" + e.ToString();
             }
 
+            isSable = SableComand(command);
 
-            return String.IsNullOrEmpty(stringBuilder.ToString()) ? error : GetLastError(stringBuilder.ToString());
+            return String.IsNullOrEmpty(stringBuilder.ToString()) ? error : isErrors ? ReturnErrors(command) : stringBuilder.ToString();
         }
 
         #region private methods
@@ -114,6 +112,8 @@ namespace SableCC_CompilerAssisten
 
         void PrintErrors(Collection<object> errors)
         {
+            stringBuilder.Clear();
+
             foreach (var error in errors)
             {
                 stringBuilder.AppendLine(error.ToString());
@@ -122,10 +122,29 @@ namespace SableCC_CompilerAssisten
 
         void PrintMessage(Collection<PSObject> psObj)
         {
+            stringBuilder.Clear();
+
             foreach (var obj in psObj)
             {
                 stringBuilder.AppendLine(obj.ToString());
             }
+        }
+
+        string ReturnErrors(string command)
+        {
+            if (SableComand(command))
+            {
+                return GetLastError(stringBuilder.ToString());
+            }
+            else
+            {
+                return stringBuilder.ToString();
+            }
+        }
+
+        bool SableComand(string path)
+        {
+            return script.get().Contains(@".\sablecc");
         }
         #endregion
     }

@@ -35,6 +35,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Pathtxt = new System.Windows.Forms.TextBox();
+            this.SetScriptBtn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -56,14 +58,14 @@
             this.PowerShellTxt.Name = "PowerShellTxt";
             this.PowerShellTxt.ReadOnly = true;
             this.PowerShellTxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.PowerShellTxt.Size = new System.Drawing.Size(1114, 813);
+            this.PowerShellTxt.Size = new System.Drawing.Size(1180, 813);
             this.PowerShellTxt.TabIndex = 1;
             // 
             // CompileBtn
             // 
-            this.CompileBtn.Location = new System.Drawing.Point(926, 12);
+            this.CompileBtn.Location = new System.Drawing.Point(1068, 12);
             this.CompileBtn.Name = "CompileBtn";
-            this.CompileBtn.Size = new System.Drawing.Size(201, 87);
+            this.CompileBtn.Size = new System.Drawing.Size(124, 87);
             this.CompileBtn.TabIndex = 2;
             this.CompileBtn.Text = "Compile";
             this.CompileBtn.UseVisualStyleBackColor = true;
@@ -72,11 +74,10 @@
             // Commandtxt
             // 
             this.Commandtxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Commandtxt.Location = new System.Drawing.Point(132, 12);
+            this.Commandtxt.Location = new System.Drawing.Point(80, 12);
             this.Commandtxt.Multiline = true;
             this.Commandtxt.Name = "Commandtxt";
-            this.Commandtxt.ReadOnly = true;
-            this.Commandtxt.Size = new System.Drawing.Size(787, 39);
+            this.Commandtxt.Size = new System.Drawing.Size(839, 39);
             this.Commandtxt.TabIndex = 3;
             // 
             // label2
@@ -84,9 +85,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 19);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 25);
+            this.label2.Size = new System.Drawing.Size(62, 25);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Command";
+            this.label2.Text = "Script";
             // 
             // label3
             // 
@@ -100,19 +101,40 @@
             // Pathtxt
             // 
             this.Pathtxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Pathtxt.Location = new System.Drawing.Point(132, 60);
+            this.Pathtxt.Location = new System.Drawing.Point(80, 60);
             this.Pathtxt.Multiline = true;
             this.Pathtxt.Name = "Pathtxt";
-            this.Pathtxt.ReadOnly = true;
-            this.Pathtxt.Size = new System.Drawing.Size(787, 39);
+            this.Pathtxt.Size = new System.Drawing.Size(839, 39);
             this.Pathtxt.TabIndex = 6;
+            // 
+            // SetScriptBtn
+            // 
+            this.SetScriptBtn.Location = new System.Drawing.Point(925, 12);
+            this.SetScriptBtn.Name = "SetScriptBtn";
+            this.SetScriptBtn.Size = new System.Drawing.Size(137, 39);
+            this.SetScriptBtn.TabIndex = 7;
+            this.SetScriptBtn.Text = "Reset Script";
+            this.SetScriptBtn.UseVisualStyleBackColor = true;
+            this.SetScriptBtn.Click += new System.EventHandler(this.SetScriptBtn_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(925, 60);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(137, 39);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Reset Path";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(1139, 955);
+            this.ClientSize = new System.Drawing.Size(1204, 955);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.SetScriptBtn);
             this.Controls.Add(this.Pathtxt);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -136,6 +158,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox Pathtxt;
+        private System.Windows.Forms.Button SetScriptBtn;
+        private System.Windows.Forms.Button button1;
     }
 }
 
