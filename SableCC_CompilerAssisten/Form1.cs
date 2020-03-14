@@ -79,7 +79,7 @@ namespace SableCC_CompilerAssisten
         void SetInitialPaths()
         {
             scriptPath = start + extention + ps1;
-            sourcePath = start + @"\SableCompilerFiles\com";
+            sourcePath = start + @"\com";
             destinationPath = start + @"\src\com";
 
         }
