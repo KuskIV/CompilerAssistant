@@ -16,7 +16,7 @@ namespace SableCC_CompilerAssisten
 
         // Unique path to the SableCC git folder
         string start = @"C:\Users\madsh\OneDrive\Universitetet\Github Projects\SableCC";
-        string extention = @"\SableCompilerFiles";
+        string extention = "";
         string ps1 = @"\script.ps1";
 
         string scriptPath;
@@ -149,5 +149,10 @@ namespace SableCC_CompilerAssisten
             }
         }
         #endregion
+
+        private void PowerShellTxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
