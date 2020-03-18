@@ -26,3 +26,18 @@ C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_
 C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\obj\Debug\SableCC_CompilerAssisten.pdb
 C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\bin\Debug\Markdig.dll
 C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\bin\Debug\Markdig.xml
+C:\Users\jeppe\OneDrive\Skrivebord\Programmering\Docker\CompilerAssistant\SableCC_CompilerAssisten\bin\Debug\SableCC_CompilerAssisten.exe.config
+C:\Users\jeppe\OneDrive\Skrivebord\Programmering\Docker\CompilerAssistant\SableCC_CompilerAssisten\bin\Debug\SableCC_CompilerAssisten.exe
+C:\Users\jeppe\OneDrive\Skrivebord\Programmering\Docker\CompilerAssistant\SableCC_CompilerAssisten\bin\Debug\SableCC_CompilerAssisten.pdb
+C:\Users\jeppe\OneDrive\Skrivebord\Programmering\Docker\CompilerAssistant\SableCC_CompilerAssisten\bin\Debug\Markdig.dll
+C:\Users\jeppe\OneDrive\Skrivebord\Programmering\Docker\CompilerAssistant\SableCC_CompilerAssisten\bin\Debug\System.Management.Automation.dll
+C:\Users\jeppe\OneDrive\Skrivebord\Programmering\Docker\CompilerAssistant\SableCC_CompilerAssisten\bin\Debug\Microsoft.Management.Infrastructure.dll
+C:\Users\jeppe\OneDrive\Skrivebord\Programmering\Docker\CompilerAssistant\SableCC_CompilerAssisten\bin\Debug\Markdig.xml
+C:\Users\jeppe\OneDrive\Skrivebord\Programmering\Docker\CompilerAssistant\SableCC_CompilerAssisten\bin\Debug\System.Management.Automation.xml
+C:\Users\jeppe\OneDrive\Skrivebord\Programmering\Docker\CompilerAssistant\SableCC_CompilerAssisten\obj\Debug\SableCC_CompilerAssisten.csprojAssemblyReference.cache
+C:\Users\jeppe\OneDrive\Skrivebord\Programmering\Docker\CompilerAssistant\SableCC_CompilerAssisten\obj\Debug\SableCC_CompilerAssisten.Form1.resources
+C:\Users\jeppe\OneDrive\Skrivebord\Programmering\Docker\CompilerAssistant\SableCC_CompilerAssisten\obj\Debug\SableCC_CompilerAssisten.Properties.Resources.resources
+C:\Users\jeppe\OneDrive\Skrivebord\Programmering\Docker\CompilerAssistant\SableCC_CompilerAssisten\obj\Debug\SableCC_CompilerAssisten.csproj.GenerateResource.cache
+C:\Users\jeppe\OneDrive\Skrivebord\Programmering\Docker\CompilerAssistant\SableCC_CompilerAssisten\obj\Debug\SableCC_CompilerAssisten.csproj.CopyComplete
+C:\Users\jeppe\OneDrive\Skrivebord\Programmering\Docker\CompilerAssistant\SableCC_CompilerAssisten\obj\Debug\SableCC_CompilerAssisten.exe
+C:\Users\jeppe\OneDrive\Skrivebord\Programmering\Docker\CompilerAssistant\SableCC_CompilerAssisten\obj\Debug\SableCC_CompilerAssisten.pdb

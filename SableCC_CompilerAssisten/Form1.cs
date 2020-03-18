@@ -15,7 +15,7 @@ namespace SableCC_CompilerAssisten
     {
 
         // Unique path to the SableCC git folder
-        string start = @"C:\Users\madsh\OneDrive\Universitetet\Github Projects\SableCC";
+        string start = @"C:\Users\jeppe\OneDrive\Skrivebord\Programmering\Docker\SableCC";
         string extention = "";
         string ps1 = @"\script.ps1";
 
