@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Art.cs" />
     <Compile Include="Compile.cs" />
     <Compile Include="Folder.cs" />
     <Compile Include="Form1.cs">

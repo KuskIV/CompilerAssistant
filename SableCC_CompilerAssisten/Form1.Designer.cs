@@ -60,7 +60,6 @@
             this.PowerShellTxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.PowerShellTxt.Size = new System.Drawing.Size(1180, 813);
             this.PowerShellTxt.TabIndex = 1;
-            this.PowerShellTxt.TextChanged += new System.EventHandler(this.PowerShellTxt_TextChanged);
             // 
             // CompileBtn
             // 

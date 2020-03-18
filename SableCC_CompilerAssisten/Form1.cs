@@ -29,6 +29,7 @@ namespace SableCC_CompilerAssisten
         Folder folder = new Folder();
         Compile command = new Compile();
         Script script;
+        Art art = new Art();
 
         public Form1()
         {
@@ -101,7 +102,7 @@ namespace SableCC_CompilerAssisten
         {
             if (!isError)
             {
-                PowerShellTxt.Text = "Success!\r\n" + result;
+                PrintSuccess(result, isSable);
 
                 if (isSable)
                 {
@@ -110,7 +111,7 @@ namespace SableCC_CompilerAssisten
             }
             else
             {
-                PowerShellTxt.Text = "Error!\r\n" + result;
+                PrintError(result);
                 script.set(defaultScipt);
             }
         }
@@ -148,11 +149,28 @@ namespace SableCC_CompilerAssisten
                 return initial;
             }
         }
-        #endregion
 
-        private void PowerShellTxt_TextChanged(object sender, EventArgs e)
+        void PrintSuccess(string message, bool isSable)
         {
+            string success = "\r\n" +
+                             "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\r\n" +
+                             "%%                                  SUCCESS!                                   %%\r\n" +
+                             "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\r\n";
 
+            PowerShellTxt.Text = isSable ? success + art.GetRandom() : success + message;
         }
+
+        void PrintError(string message)
+        {
+            
+            string error = "\r\n" +
+                           "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  ╭∩╮（︶︿︶）╭∩╮  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\r\n" +
+                           "%%         ┻━┻ ︵ ヽ(°□°ヽ)           <<<ERROR>>>            (╯°□°）╯︵ ┻━┻         %%\r\n" +
+                           "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\r\n\r\n";
+
+            PowerShellTxt.Text = error + message;
+        }
+
+        #endregion
     }
 }
