@@ -37,12 +37,13 @@
             this.Pathtxt = new System.Windows.Forms.TextBox();
             this.SetScriptBtn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.AllErrors = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 921);
+            this.label1.Location = new System.Drawing.Point(852, 921);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(340, 25);
             this.label1.TabIndex = 0;
@@ -57,9 +58,10 @@
             this.PowerShellTxt.Multiline = true;
             this.PowerShellTxt.Name = "PowerShellTxt";
             this.PowerShellTxt.ReadOnly = true;
-            this.PowerShellTxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.PowerShellTxt.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.PowerShellTxt.Size = new System.Drawing.Size(1180, 813);
             this.PowerShellTxt.TabIndex = 1;
+            this.PowerShellTxt.WordWrap = false;
             // 
             // CompileBtn
             // 
@@ -127,12 +129,24 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // AllErrors
+            // 
+            this.AllErrors.AutoSize = true;
+            this.AllErrors.Location = new System.Drawing.Point(17, 924);
+            this.AllErrors.Name = "AllErrors";
+            this.AllErrors.Size = new System.Drawing.Size(239, 29);
+            this.AllErrors.TabIndex = 9;
+            this.AllErrors.Text = "Show all errors (BETA)";
+            this.AllErrors.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.AllErrors.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(1204, 955);
+            this.ClientSize = new System.Drawing.Size(1204, 960);
+            this.Controls.Add(this.AllErrors);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.SetScriptBtn);
             this.Controls.Add(this.Pathtxt);
@@ -160,6 +174,7 @@
         private System.Windows.Forms.TextBox Pathtxt;
         private System.Windows.Forms.Button SetScriptBtn;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox AllErrors;
     }
 }
 

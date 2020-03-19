@@ -15,7 +15,7 @@ namespace SableCC_CompilerAssisten
     {
 
         // Unique path to the SableCC git folder
-        string start = @"C:\Users\jeppe\OneDrive\Skrivebord\Programmering\Docker\SableCC";
+        string start = @"C:\Users\madsh\OneDrive\Universitetet\Github Projects\SableCC";
         string extention = "";
         string ps1 = @"\script.ps1";
 
@@ -128,7 +128,7 @@ namespace SableCC_CompilerAssisten
 
             if (String.IsNullOrEmpty(result))
             {
-                result = command.Run(scriptPath, SetPath(Pathtxt.Text), out isError, out isSable);
+                result = command.Run(scriptPath, SetPath(Pathtxt.Text), AllErrors.Checked, out isError, out isSable);
 
                 HandleResult(isError, isSable, result);
             }

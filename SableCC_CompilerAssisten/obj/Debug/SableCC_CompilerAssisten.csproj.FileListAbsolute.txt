@@ -17,7 +17,6 @@ C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_
 C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\bin\Debug\System.Management.Automation.dll
 C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\bin\Debug\Microsoft.Management.Infrastructure.dll
 C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\bin\Debug\System.Management.Automation.xml
-C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\obj\Debug\SableCC_CompilerAssisten.csprojAssemblyReference.cache
 C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\obj\Debug\SableCC_CompilerAssisten.Form1.resources
 C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\obj\Debug\SableCC_CompilerAssisten.Properties.Resources.resources
 C:\Users\madsh\OneDrive\Universitetet\Github Projects\CompilerAssistant\SableCC_CompilerAssisten\obj\Debug\SableCC_CompilerAssisten.csproj.GenerateResource.cache

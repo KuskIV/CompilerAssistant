@@ -32,7 +32,7 @@ namespace SableCC_CompilerAssisten
         /// <param name="path"></param>
         /// <param name="isErrors"></param>
         /// <returns></returns>
-        public string Run(string command, string path, out bool isErrors, out bool isSable)
+        public string Run(string command, string path, bool ReturAllErrors, out bool isErrors, out bool isSable)
         {
             string error = SetupScript(command, path);
             isErrors = false;
@@ -75,7 +75,7 @@ namespace SableCC_CompilerAssisten
 
             isSable = script != null ? SableComand(command) : false;
 
-            return String.IsNullOrEmpty(stringBuilder.ToString()) ? error : isErrors ? ReturnErrors(command) : stringBuilder.ToString();
+            return String.IsNullOrEmpty(stringBuilder.ToString()) ? error : isErrors ? ReturnErrors(command, ReturAllErrors) : stringBuilder.ToString();
         }
 
         #region private methods
@@ -144,11 +144,11 @@ namespace SableCC_CompilerAssisten
             }
         }
 
-        string ReturnErrors(string command)
+        string ReturnErrors(string command, bool returnAll)
         {
             if (script != null)
             {
-                if (SableComand(command))
+                if (SableComand(command) && !returnAll)
                 {
                     return GetLastError(stringBuilder.ToString());
                 }
